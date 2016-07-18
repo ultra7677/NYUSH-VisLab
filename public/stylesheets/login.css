@@ -1,0 +1,57 @@
+body {
+
+
+}
+
+.nav-tabs {
+     border-bottom: 0px solid #ddd;
+}
+
+.nav-tabs>li>a{
+    color: #0f0f0f;
+}
+
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:focus, .nav-tabs>li.active>a:hover{
+    color: #5072ab;
+    cursor: default;
+    background-color: #f5f5f5;
+    border: 1px solid  #5072ab;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+}
+
+.input-field{
+	background-color: rgb(228, 228, 228);
+}
+
+.input-label {
+  height: 30px;
+  line-height: 30px;
+  width: 100%;
+  color: #363636;
+  font-size: 14px;
+}
+
+.panel.panel-default.action-panel{
+    margin:auto;
+}
+
+.input-field-group.password {
+  margin-top: 10px;
+}
+
+.btn.oauth-login, .btn.login, .useful-links {
+  margin-top: 20px;
+}
+
+.oauth-login-form {
+  padding: 20px 0px;
+}
+
+.split-line {
+  height: 1px;
+  border-bottom: 1px solid white;
+}
+
+

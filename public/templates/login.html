@@ -1,0 +1,56 @@
+<link rel="stylesheet" href="/stylesheets/login.css">
+
+<script type="text/javascript">
+
+</script>
+
+<div class="login-container col-md-12" style="margin-top: 250px;">
+
+<div class="panel panel-default action-panel">
+    <div class="panel-heading">
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active">
+                <a href="" aria-controls="login" role="tab" data-toggle="tab">Login</a>
+            </li>
+            <li role="presentation">
+                <a href="" aria-controls="register" role="tab" data-toggle="tab">Register</a>
+            </li>
+        </ul>
+    </div>
+
+    <div class="panel-body">
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="login">
+                <!-- Login input field -->
+                <div class="input-field-group">
+                    <div class="input-label ">Username</div>
+                    <input class="input-field" id="login_username"  type="text" />
+                </div>
+                <div class="input-field-group password">
+                    <div class="input-label  password-label">Password</div>
+                    <input class="input-field" id="login_password" type="password"/>
+                </div>
+                <div class="input-label error hidden"></div>
+                <button ng-click="jumpToUrl()" class="btn btn-xlarge login" id="login_button" type="submit">Login</button>
+            </div>
+            <div role="tabpanel" class="tab-pane" id="register">
+                <!-- Register input field -->
+                <div class="input-field-group">
+                    <div class="input-label ">Username</div>
+                    <input class="input-field" id="register_username"  type="text" />
+                </div>
+                <div class="input-field-group password">
+                    <div class="input-label  password-label">Password</div>
+                    <input class="input-field" id="rigister_password" type="password"/>
+                </div>
+                <div class="input-label error hidden"></div>
+                <button class="btn btn-xlarge login" id="register_button" type="submit">Register</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>

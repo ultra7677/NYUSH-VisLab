@@ -1,0 +1,46 @@
+.dropdown-toggle.nav-right{
+    margin-right: 10px;
+}
+
+.nav-history{
+    min-width: 750px;
+    max-width: 800px;
+    margin: auto;
+}
+
+.row.container{
+    margin: auto;
+}
+
+
+.hexagon {
+    fill: white;
+    pointer-events: all;
+}
+
+.hexagon path {
+    -webkit-transition: fill 250ms linear;
+    transition: fill 250ms linear;
+}
+
+.hexagon :hover {
+    fill: pink;
+}
+
+.hexagon .fill {
+    fill: red;
+}
+
+.mesh {
+    fill: none;
+    stroke: #000;
+    stroke-opacity: .2;
+    pointer-events: none;
+}
+
+.border {
+    fill: none;
+    stroke: #000;
+    stroke-width: 2px;
+    pointer-events: none;
+}
