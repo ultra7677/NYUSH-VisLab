@@ -2,7 +2,7 @@
  * Created by ultra on 7/17/16.
  */
 
-angular.module('demoApp').directive("hexagon", function($window) {
+angular.module('demoApp').directive("hexagonContainer", function($window) {
     return{
         restrict: "EA",
         template: "<div id='chart'></div>",
