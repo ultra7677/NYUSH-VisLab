@@ -1,0 +1,208 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#wrapper {
+  /* padding: 12px; */
+}
+
+select {
+  -webkit-appearance: menulist-button;
+  width: 200px;
+  height: 25px;
+}
+
+.drp-popup {
+  font-family: "AvenirLTStd-Heavy", "Avenir LT Std 85 Heavy", "Open Sans", Helvetica, Arial, sans-serif;
+}
+
+.drp-popup {
+  top: 30px;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 9999;
+  font-size: 12px;
+  color: #444444;
+  background-color: white;
+  padding: 18px 18px 18px;
+  border: 1px solid #d6d6d6;
+  -webkit-border-radius: 12px;
+  -moz-border-radius: 12px;
+  border-radius: 12px;
+  -webkit-box-shadow: 0px 4px 10px 0 #828282;
+  -moz-box-shadow: 0px 4px 10px 0 #828282;
+  box-shadow: 0px 4px 10px 0 #828282;
+}
+
+.drp-popup *, .drp-popup *:before, .drp-popup *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.drp-popup a {
+  text-decoration: none;
+}
+
+.drp-popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.drp-popup .drp-calendar {
+  /*display: table-cell;*/
+  vertical-align: top;
+  /*width: 70%;*/
+  padding-bottom: 8px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.drp-popup .drp-calendar .drp-month-picker {
+  position: relative;
+  background-color: #efefef;
+  height: 40px;
+  -webkit-border-radius: 20px;
+  -moz-border-radius: 20px;
+  border-radius: 20px;
+  margin-bottom: 3px;
+  line-height: 40px;
+}
+
+.drp-popup .drp-calendar .drp-month-picker .drp-month-title {
+  font-size: 14px;
+  text-align: center;
+}
+
+.drp-popup .drp-calendar .drp-month-picker .drp-arrow {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  cursor: pointer;
+  position: absolute;
+  width: 28px;
+  height: 40px;
+  text-align: center;
+  left: 0;
+  top: 0;
+  color: #afafaf;
+}
+
+.drp-popup .drp-calendar .drp-month-picker .drp-arrow-right {
+  left: auto;
+  right: 0px;
+}
+
+.drp-popup .drp-calendar .drp-day-headers{
+  border-bottom: 1px solid #e0e0e0;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.drp-popup .drp-calendar .drp-day-headers li {
+  display: inline-block;
+  width: 14.2%;
+  height: 30px;
+  line-height: 30px;
+  margin: 3px 0 3px 0px;
+  text-align: center;
+}
+
+.drp-popup .drp-calendar .drp-day-headers li:first-child {
+  margin-left: 0;
+}
+
+.drp-popup .drp-calendar .drp-days {
+  zoom: 1;
+}
+
+.drp-popup .drp-calendar .drp-days:before, .drp-popup .drp-calendar .drp-days:after {
+  content: "";
+  display: table;
+}
+
+.drp-popup .drp-calendar .drp-days:after {
+  clear: both;
+}
+
+.drp-popup .drp-calendar .drp-days li {
+  -moz-user-select: -moz-none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  width: 14.2%;
+  height: 65px;
+  /*border-right: solid 3px white;*/
+  float: left;
+  cursor: pointer;
+  line-height: 65px;
+  text-align: center;
+  margin: 0 0 0 0;
+}
+
+.drp-popup .drp-calendar .drp-days li.drp-day-last-in-row {
+  width: 13.5%;
+  border-right: none;
+}
+
+.drp-popup .drp-calendar .drp-days li.drp-day-in-range {
+  color: #2a91ca;
+  background-color: #ddf3fe;
+  border-color: #ddf3fe;
+}
+
+.drp-popup .drp-calendar .drp-days li.drp-day-last-in-range {
+  border-color: white;
+}
+
+.drp-popup .drp-calendar .drp-days li.drp-day-selected{
+  color: #2a91ca;
+}
+
+.drp-popup .drp-calendar .drp-days li:hover {
+  color: #e38d13;
+  /*color: #efefef;*/
+  /*background-color: #2a91ca;*/
+}
+
+.drp-popup .drp-calendar .drp-days li.drp-day-disabled {
+  color: #cccccc;
+}
+
+.drp-popup .drp-calendar .drp-days li.drp-day-disabled:hover {
+  background-color: white;
+  cursor: default;
+}
+
+.drp-popup .drp-calendar .drp-days .drp-day-empty {
+  background-color: transparent !important;
+  cursor: auto;
+}
+
+.drp-popup .drp-calendar-date {
+  position: relative;
+  bottom: 0px;
+  height: 34px;
+  width: inherit;
+  text-align: center;
+  color: #2a91ca;
+  font-size: 14px;
+  line-height: 34px;
+}
+
+.drp-popup .drp-calendar-date:before {
+  font-size: 14px;
+  color: #444444;
+}
+
+.drp-popup .drp-calendar-start .drp-calendar-date:before {
+  content: "Date: ";
+}
+

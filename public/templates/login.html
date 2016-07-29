@@ -11,10 +11,10 @@
         <!-- Nav tabs -->
         <ul class="nav nav-tabs" role="tablist">
             <li role="presentation" class="active">
-                <a href="" aria-controls="login" role="tab" data-toggle="tab">Login</a>
+                <a href="#login_panel" aria-controls="login_panel" role="tab" data-toggle="tab">Login</a>
             </li>
             <li role="presentation">
-                <a href="" aria-controls="register" role="tab" data-toggle="tab">Register</a>
+                <a href="#register_panel" aria-controls="register_panel" role="tab" data-toggle="tab">Register</a>
             </li>
         </ul>
     </div>
@@ -23,31 +23,31 @@
 
         <!-- Tab panes -->
         <div class="tab-content">
-            <div role="tabpanel" class="tab-pane active" id="login">
+            <div role="tabpanel" class="tab-pane active" id="login_panel">
                 <!-- Login input field -->
                 <div class="input-field-group">
                     <div class="input-label ">Username</div>
-                    <input class="input-field" id="login_username"  type="text" />
+                    <input class="input-field" id="login_username" ng-model="username"  type="text" />
                 </div>
                 <div class="input-field-group password">
-                    <div class="input-label  password-label">Password</div>
-                    <input class="input-field" id="login_password" type="password"/>
+                    <div class="input-label  password-label" >Password</div>
+                    <input class="input-field" id="login_password" ng-model="password" type="password"/>
                 </div>
                 <div class="input-label error hidden"></div>
-                <button ng-click="jumpToUrl()" class="btn btn-xlarge login" id="login_button" type="submit">Login</button>
+                <button ng-click="login()" class="btn btn-xlarge login" id="login_button" type="submit">Login</button>
             </div>
-            <div role="tabpanel" class="tab-pane" id="register">
+            <div role="tabpanel" class="tab-pane" id="register_panel">
                 <!-- Register input field -->
                 <div class="input-field-group">
                     <div class="input-label ">Username</div>
-                    <input class="input-field" id="register_username"  type="text" />
+                    <input class="input-field" id="register_username" ng-model="username" type="text" />
                 </div>
                 <div class="input-field-group password">
                     <div class="input-label  password-label">Password</div>
-                    <input class="input-field" id="rigister_password" type="password"/>
+                    <input class="input-field" id="rigister_password" ng-model="password" type="password"/>
                 </div>
                 <div class="input-label error hidden"></div>
-                <button class="btn btn-xlarge login" id="register_button" type="submit">Register</button>
+                <button ng-click="register()" class="btn btn-xlarge login" id="register_button" type="submit">Register</button>
             </div>
         </div>
 

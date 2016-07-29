@@ -1,7 +1,7 @@
 /**
  * Created by ultra on 7/13/16.
  */
-var app = angular.module('demoApp',['ui.router','LoginCtrl','MainpageCtrl']);
+var app = angular.module('demoApp',['ui.router','LoginCtrl','MainpageCtrl','HexagonCtrl']);
 
 app.config([
     '$stateProvider',
@@ -18,6 +18,19 @@ app.config([
                 url:'/login',
                 templateUrl:'/templates/login.html',
                 controller:'LoginCtrl'
+            });
+       /*
+        $stateProvider
+            .state('calendar',{
+                url:'/calendar',
+                templateUrl:'/templates/calendar.html',
+                controller:'MainpageCtrl'
+            }); */
+        $stateProvider
+            .state('hexagon',{
+                url:'/hexagon/:date/:month/:year',
+                templateUrl:'/templates/hexagon.html',
+                controller:'HexagonCtrl'
             });
         $urlRouterProvider.otherwise('login');
     }

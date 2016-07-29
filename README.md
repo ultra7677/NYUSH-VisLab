@@ -47,7 +47,7 @@ public/
 controller: AngularJS框架下的Controller  
 directives: AngularJS框架下的自定义的directive  
 visualization: 可视化部分的JS  
-angularApp.js: AngularJS的config文件
+AngularApp.js: AngularJS的config文件
 >
 /templates/  
 放置静态的html  

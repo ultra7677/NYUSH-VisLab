@@ -1,11 +1,21 @@
 /**
  * Created by ultra on 7/19/16.
  */
-hexagon = function(){
+var hexagon = (function(){
+
+    ///////////////////////////////////////////////////
+    // Public Variables
+
     var hexagon = {},
         size = [,];
 
+    ///////////////////////////////////////////////////
+    // Private Variables
+
     var camera,scene,renderer,light,cube;
+
+    ///////////////////////////////////////////////////
+    // Public Functions
 
     hexagon.size = function(_) {
         if (!arguments.length) return size;
@@ -14,7 +24,8 @@ hexagon = function(){
     };
 
     hexagon.init = function(canvasContainer) {
-        console.log(canvasContainer);
+
+        //console.log(canvasContainer);
 
         // init three
         width = size[0];
@@ -78,7 +89,8 @@ hexagon = function(){
         renderer.render(scene, camera);
     }
 
-
+    ///////////////////////////////////////////////////
+    // Private Functions
 
     return hexagon;
-}();
+})();
