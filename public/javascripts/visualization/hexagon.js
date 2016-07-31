@@ -64,23 +64,56 @@ var hexagon = (function(){
         light.position.set(100, 100, 200);
         scene.add(light);
 
-        // init object
-        var geometry = new THREE.Geometry();
-        geometry.vertices.push( new THREE.Vector3( - 500, 0, 0 ) );
-        geometry.vertices.push( new THREE.Vector3( 500, 0, 0 ) );
+        // hexagon
+        var center_x = 350, center_z = 350;
+        var center = {x:center_x,y:0,z: center_z = 300};
+        var length = 50;
 
-        for ( var i = 0; i <= 20; i ++ ) {
-
-            var line = new THREE.Line( geometry, new THREE.LineBasicMaterial( { color: 0x000000, opacity: 0.2 } ) );
-            line.position.z = ( i * 50 ) - 500;
-            scene.add( line );
-
-            var line = new THREE.Line( geometry, new THREE.LineBasicMaterial( { color: 0x000000, opacity: 0.2 } ) );
-            line.position.x = ( i * 50 ) - 500;
-            line.rotation.y = 90 * Math.PI / 180;
-            scene.add( line );
-
+        for (var i = 0; i < 10; i++){
+            // draw hexagons of even columns
+            if (i % 2 == 0){
+                for (var j = 0; j < 7; j++) {
+                    center.x = center_x - i * 1.5 * length;
+                    center.z = center_z - j * (Math.sqrt(3) * length);
+                    var line = draw_hexagon(center, length);
+                    scene.add(line);
+                }
+            }
+            // draw hexagons of odd columns
+            else{
+                for (var j = 0; j < 7; j++) {
+                    center.x = center_x - i * 1.5 * length;
+                    center.z = center_z - Math.sqrt(3) * (j + 0.5) * length;
+                    var line = draw_hexagon(center, length);
+                    scene.add(line);
+                }
+            }
         }
+
+
+        // mouse
+        var vector = new THREE.Vector3();
+
+        vector.set(
+            ( event.clientX / window.innerWidth ) * 2 - 1,
+            - ( event.clientY / window.innerHeight ) * 2 + 1,
+            0.5 );
+
+        vector.unproject( camera );
+
+        var dir = vector.sub( camera.position ).normalize();
+
+        var distance = - camera.position.y / dir.y;
+
+        var pos = camera.position.clone().add( dir.multiplyScalar( distance ) );
+
+        console.log(pos);
+
+        $("canvas").mousemove(function(e) {
+            console.log(e.pageX);
+            console.log(e.pageY);
+        });
+
         return hexagon;
     }
 
@@ -91,6 +124,29 @@ var hexagon = (function(){
 
     ///////////////////////////////////////////////////
     // Private Functions
+
+    function hex_corner(center,size,i){
+        var angle_deg = 60 * i;
+        var angle_rad = Math.PI / 180 * angle_deg;
+        var point = {};
+        point.x = center.x + size * Math.cos(angle_rad);
+        point.z = center.z + size * Math.sin(angle_rad)
+        return point;
+    }
+
+    function draw_hexagon(center,size){
+        var geometry = new THREE.Geometry();
+        var vertices = [];
+        for(var i = 0; i<= 6; i++){
+            var point = hex_corner(center,size,i);
+            console.log(point);
+            var vertice = new THREE.Vector3(point.x,0,point.z);
+            vertices.push(vertice);
+        }
+        geometry.vertices = vertices;
+        var line = new THREE.Line( geometry, new THREE.LineBasicMaterial( { color: 0x000000, opacity: 1} ) );
+        return line;
+    }
 
     return hexagon;
 })();

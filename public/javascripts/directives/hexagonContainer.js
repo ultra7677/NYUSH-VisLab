@@ -14,6 +14,7 @@ angular.module('demoApp').directive("hexagonContainer", function($window) {
                 .size([$(window).width()*0.95,800])
                 .init(canvasContainer)
                 .render();
+
         }
     };
 });
