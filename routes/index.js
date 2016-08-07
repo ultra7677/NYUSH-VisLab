@@ -69,6 +69,19 @@ router.post('/auth/register',function(req,res,next){
     });
 });
 
+
+// read data.json
+var fs = require('fs');
+var obj = JSON.parse(fs.readFileSync('data.json', 'utf8'));
+
+router.get('/data/binList', function(req,res,next){
+    res.json(obj);
+})
+
+//console.log(obj["bin_list"][0].hash_code);
+
+
+
 /*
 router.get('/posts', function(req,res,next){
   Post.find(function(err,posts){

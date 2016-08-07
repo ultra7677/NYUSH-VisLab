@@ -1,0 +1,46 @@
+{
+  "bin_list" : [
+    {
+      "bin_id" : "0",
+      "hash_code" : "0011001101",
+      "p_risk" : "0.777",
+      "users" : [
+          {
+            "user_id" : "0"
+           },
+          {
+            "user_id" : "1"
+          },
+          {
+            "user_id" : "2"
+          }
+      ]
+    },
+    {
+      "bin_id" : "1",
+      "hash_code" : "1111011001",
+      "p_risk" : "0.123",
+      "users" : [
+        {
+          "user_id" : "3"
+        },
+        {
+          "user_id" : "4"
+        }
+      ]
+    },
+    {
+      "bin_id" : "2",
+      "hash_code" : "0110011001",
+      "p_risk" : "0.456",
+      "users" : [
+        {
+          "user_id" : "6"
+        },
+        {
+          "user_id" : "7"
+        }
+      ]
+    }
+  ]
+}

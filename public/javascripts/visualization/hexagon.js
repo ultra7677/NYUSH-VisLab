@@ -12,7 +12,7 @@ var hexagon = (function(){
     ///////////////////////////////////////////////////
     // Private Variables
 
-    var camera,scene,renderer,light,cube;
+    var camera,scene,renderer,light,raycaster,mouse;
 
     ///////////////////////////////////////////////////
     // Public Functions
@@ -30,9 +30,6 @@ var hexagon = (function(){
         // init three
         width = size[0];
         height = size[1];
-
-       // console.log(width);
-       // console.log(height);
 
         renderer = new THREE.WebGLRenderer({
             antialias : true
@@ -69,6 +66,10 @@ var hexagon = (function(){
         var center = {x:center_x,y:0,z: center_z = 300};
         var length = 50;
 
+        //var object = draw_hexagon(center,length);
+
+
+        /*
         for (var i = 0; i < 10; i++){
             // draw hexagons of even columns
             if (i % 2 == 0){
@@ -88,34 +89,13 @@ var hexagon = (function(){
                     scene.add(line);
                 }
             }
-        }
-
-
-        // mouse
-        var vector = new THREE.Vector3();
-
-        vector.set(
-            ( event.clientX / window.innerWidth ) * 2 - 1,
-            - ( event.clientY / window.innerHeight ) * 2 + 1,
-            0.5 );
-
-        vector.unproject( camera );
-
-        var dir = vector.sub( camera.position ).normalize();
-
-        var distance = - camera.position.y / dir.y;
-
-        var pos = camera.position.clone().add( dir.multiplyScalar( distance ) );
-
-        console.log(pos);
-
-        $("canvas").mousemove(function(e) {
-            console.log(e.pageX);
-            console.log(e.pageY);
-        });
+        }*/
 
         return hexagon;
     }
+
+
+
 
     hexagon.render = function(){
         renderer.clear();
@@ -124,6 +104,7 @@ var hexagon = (function(){
 
     ///////////////////////////////////////////////////
     // Private Functions
+
 
     function hex_corner(center,size,i){
         var angle_deg = 60 * i;
@@ -139,11 +120,13 @@ var hexagon = (function(){
         var vertices = [];
         for(var i = 0; i<= 6; i++){
             var point = hex_corner(center,size,i);
-            console.log(point);
+            //console.log(point);
             var vertice = new THREE.Vector3(point.x,0,point.z);
             vertices.push(vertice);
         }
         geometry.vertices = vertices;
+        //geometry.faces.push(new THREE.Face3(0,1,2));
+       // var object = new THREE.Mesh( geometry, new THREE.MeshNormalMaterial() );
         var line = new THREE.Line( geometry, new THREE.LineBasicMaterial( { color: 0x000000, opacity: 1} ) );
         return line;
     }
