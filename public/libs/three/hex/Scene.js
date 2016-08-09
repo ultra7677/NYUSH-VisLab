@@ -28,7 +28,8 @@ vg.Scene = function(e, t) {
                 alpha: i.alpha,
                 antialias: i.antialias
             }),
-            this.renderer.setClearColor(i.clearColor, 0),
+            this.renderer.setClearColor( 0xf0f0f0 ),
+           // this.renderer.setClearColor(i.clearColor, 0),
             this.renderer.sortObjects = i.sortObjects,
             // the width and height of the canvas
             this.width = e.width,
@@ -51,6 +52,7 @@ vg.Scene = function(e, t) {
         this.controls.maxDistance = s.maxDistance,
         this.controls.zoomSpeed = s.zoomSpeed,
         this.controls.noZoom = s.noZoom),
+        console.log(this.controls),
     i.cameraPosition && this.camera.position.copy(i.cameraPosition),
         window.addEventListener("resize", function() {
             if (this.width = window.innerWidth,
@@ -86,6 +88,7 @@ vg.Scene = function(e, t) {
             this.container.remove(e)
         },
         render: function() {
+           // console.log(this.controls);
             this.contolled && this.controls.update(),
                 this.renderer.render(this.container, this.camera)
         },
@@ -105,6 +108,8 @@ vg.Scene = function(e, t) {
         }
     },
     vg.Scene.prototype.constructor = vg.Scene,
+
+    /***** vg.SelectionManager *****/
     vg.SelectionManager = function(e) {
         this.mouse = e,
             this.onSelect = new vg.Signal,
@@ -137,6 +142,7 @@ vg.Scene = function(e, t) {
                 case vg.MouseCaster.CLICK:
                     this.select(t)
             }
+
         }
     },
     vg.SelectionManager.prototype.constructor = vg.SelectionManager;

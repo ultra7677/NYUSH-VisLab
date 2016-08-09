@@ -26,8 +26,11 @@ vg.Tile = function(config) {
 	this.material = settings.material;
 	if (!this.material) {
 		this.material = new THREE.MeshPhongMaterial({
-			color: vg.Tools.randomizeRGB('30, 30, 30', 13)
-			//color: 0xbbbbbb
+			//color: vg.Tools.randomizeRGB('30, 30, 30', 13)
+			//color : vg.Tools.randomizeRGB('176,196,222',13)
+			color: new THREE.Color(0x2F2F2F),
+		//	emissive : new THREE.Color(0xFAA460),
+			specular : new THREE.Color(0x152020)
 		});
 	}
 
@@ -36,7 +39,7 @@ vg.Tile = function(config) {
 	this.userData = {};
 
 	this.selected = false;
-	this.highlight = '0x0084cc';
+	this.highlight = '0xFF6347';
 
 	this.mesh = new THREE.Mesh(this.geometry, this.material);
 	this.mesh.userData.structure = this;

@@ -189,11 +189,12 @@ vg.HexGrid.prototype = {
 		}*/
 
 		if (data != null) {
-			console.log(cell);
-			console.log(data);
-			material = new THREE.MeshPhongMaterial({
-				color: vg.Tools.randomizeRGB('25, 20, 30', 13)
-			});
+			//console.log(cell);
+			//console.log(data);
+			//material = new THREE.MeshPhongMaterial({
+			//	color:  new THREE.Color(0x191940),
+			//	specular : new THREE.Color(0x152020)
+			//})
 		}
 
 		var tile = new vg.Tile({

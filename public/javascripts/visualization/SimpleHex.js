@@ -45,7 +45,7 @@ var simpleHex = (function(){
             width : width,
             height : height,
             element: document.getElementById(canvasContainer),
-            cameraPosition: {x:0, y:150, z:150}
+            cameraPosition: {x:0, y:200, z:150}
         }, true);
 
         // this constructs the cells in grid coordinate space
@@ -54,7 +54,7 @@ var simpleHex = (function(){
         });
 
         grid.generate({
-            size: 2 // size of the board
+            size: 5 // size of the board
         });
 
         scene.container.offsetX = offsetX;
@@ -66,7 +66,7 @@ var simpleHex = (function(){
         board = new vg.Board(grid);
 
 
-        // insert data into tile
+        // insert data into tiles
         var binList = binList_data["bin_list"];
 
         // this will generate extruded hexagonal tiles
@@ -75,29 +75,29 @@ var simpleHex = (function(){
             binList: binList
         });
 
-/*
-        for (var i = 0; i < binList.length; i ++ ) {
-            board.tiles[i].userData = binList[i];
-            board.tiles[i].modifyColor();
-        }
-  */
-        //console.log(binList_data);
-        console.log(board.tiles);
+        drawTiles(board.tiles,binList);
+
+        //console.log(board.tiles);
 
         scene.add(board.group);
         scene.focusOn(board.group);
 
-        var vec = new THREE.Vector3();
 
+       // var vec = new THREE.Vector3();
         mouse.signal.add(function(evt, tile) {
+           // console.log(evt,tile);
             if (evt === vg.MouseCaster.CLICK) {
                 // tile.toggle();
                 // or we can use the mouse's raw coordinates to access the cell directly, just for fun:
+               // console.log(mouse.position);
                 var cell = board.grid.pixelToCell(mouse.position);
+                console.log(cell);
                 var t = board.getTileAtCell(cell);
                 if (t) t.toggle();
             }
         }, this);
+
+       // console.log(mouse);
 
         update();
 
@@ -112,6 +112,59 @@ var simpleHex = (function(){
 
     ///////////////////////////////////////////////////
     // Private Functions
+
+    function drawTiles(tiles,data){
+        var tile = tiles[(tiles.length -1) / 2];
+        var orderedTiles = [];
+        var colors = [];
+
+        tile.material.color.setHex('0x191940');
+        var cells = grid.cells;
+
+        // get the distance
+        for (var i = 0; i < tiles.length; i++) {
+            tiles[i].cell.userData.distanceToCenter = grid.distance(tiles[i].cell,tile.cell);
+        }
+
+        // allocate colors to grid
+        colors[1] = '0xB8860B';
+        colors[2] = '0xDAA520';
+        colors[3] = '0xBDB76B';
+        colors[4] = '0xD2B48C';
+        colors[0] = '0xD2691E';
+
+        for (var i = 0; i<=5 ; i++){
+            for (var j = 0; j< tiles.length; j++){
+                if ( tiles[j].cell.userData.distanceToCenter == i){
+                    orderedTiles.push(tiles[j]);
+                }
+            }
+        }
+
+
+        // sort by anomaly probability
+
+        for (var i = 0; i < data.length - 1; i++)
+            for (var j = i + 1; j < data.length; j ++){
+                if (data[i].p_risk < data[j].p_risk){
+                    var s = data[i];
+                    data[i] = data[j];
+                    data[j] = s;
+                }
+            }
+
+        // console.log(data);
+
+        for (var i = 0; i < data.length; i ++){
+            var single_tile = orderedTiles[i];
+            var index = single_tile.cell.userData.distanceToCenter
+            single_tile.material.color.setHex(colors[index]);
+            single_tile.userData.info = data[i];
+        }
+        //console.log(grid.distance(cells[0]))
+        //console.log(board.grid.getNeighbors(tile.cell,false,null));
+
+    }
 
     return simpleHex;
 })();

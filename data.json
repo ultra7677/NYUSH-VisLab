@@ -19,7 +19,7 @@
     {
       "bin_id" : "1",
       "hash_code" : "1111011001",
-      "p_risk" : "0.123",
+      "p_risk" : "0.456",
       "users" : [
         {
           "user_id" : "3"
@@ -32,7 +32,85 @@
     {
       "bin_id" : "2",
       "hash_code" : "0110011001",
-      "p_risk" : "0.456",
+      "p_risk" : "0.123",
+      "users" : [
+        {
+          "user_id" : "6"
+        },
+        {
+          "user_id" : "7"
+        }
+      ]
+    },
+    {
+      "bin_id" : "3",
+      "hash_code" : "0110011001",
+      "p_risk" : "0.353",
+      "users" : [
+        {
+          "user_id" : "6"
+        },
+        {
+          "user_id" : "7"
+        }
+      ]
+    },
+    {
+      "bin_id" : "4",
+      "hash_code" : "0110011001",
+      "p_risk" : "0.623",
+      "users" : [
+        {
+          "user_id" : "6"
+        },
+        {
+          "user_id" : "7"
+        }
+      ]
+    },
+    {
+      "bin_id" : "5",
+      "hash_code" : "0110011001",
+      "p_risk" : "0.423",
+      "users" : [
+        {
+          "user_id" : "6"
+        },
+        {
+          "user_id" : "7"
+        }
+      ]
+    },
+    {
+      "bin_id" : "6",
+      "hash_code" : "0110011001",
+      "p_risk" : "0.523",
+      "users" : [
+        {
+          "user_id" : "6"
+        },
+        {
+          "user_id" : "7"
+        }
+      ]
+    },
+    {
+      "bin_id" : "7",
+      "hash_code" : "0110011001",
+      "p_risk" : "0.853",
+      "users" : [
+        {
+          "user_id" : "6"
+        },
+        {
+          "user_id" : "7"
+        }
+      ]
+    },
+    {
+      "bin_id" : "8",
+      "hash_code" : "0110011001",
+      "p_risk" : "0.623",
       "users" : [
         {
           "user_id" : "6"

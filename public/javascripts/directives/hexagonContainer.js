@@ -27,7 +27,6 @@ angular.module('demoApp').directive("hexagonContainer", function($window,$http) 
 
             $http.get('/data/binList')
                 .success(function(success){
-                    //console.log(success);
                     simpleHex
                         .size([$(window).width()*0.95,670])
                         .binList_data(success)

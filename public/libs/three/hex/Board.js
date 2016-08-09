@@ -113,7 +113,7 @@ vg.Board.prototype = {
 		this.tiles = [];
 		this.tileGroup = new THREE.Object3D();
 		this.group.add(this.tileGroup);
-		//console.log(newGrid);
+		console.log(newGrid);
 	},
 
 	generateOverlay: function(size) {
@@ -369,15 +369,19 @@ function() {
 			}
 		},
 			e.prototype.constructor = e;
+
+
+		/***** vg.signal *****/
 		var t = function() {
 				this._bindings = [],
 					this._prevParams = null ;
 				var e = this;
 				this.dispatch = function() {
+					//console.log(e,arguments);
+					// e is vg.signal, arguments in format like ["click",vg.Tile]
 					t.prototype.dispatch.apply(e, arguments)
 				}
-			}
-			;
+			};
 		t.prototype = {
 			memorize: !1,
 			_shouldPropagate: !0,
@@ -415,6 +419,7 @@ function() {
 				return -1 !== this._indexOfListener(e, t)
 			},
 			add: function(e, t, i) {
+				//console.log(e,t,i);
 				return this.validateListener(e, "add"),
 					this._registerListener(e, !1, t, i)
 			},
@@ -445,6 +450,7 @@ function() {
 			dispatch: function() {
 				if (this.active) {
 					var e, t = Array.prototype.slice.call(arguments), i = this._bindings.length;
+					//console.log(arguments);
 					if (this.memorize && (this._prevParams = t),
 							i) {
 						e = this._bindings.slice(),

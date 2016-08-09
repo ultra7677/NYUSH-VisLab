@@ -18,8 +18,8 @@ vg.MouseCaster = function(e, t, i) {
         this._camera = t,
         this._raycaster = new THREE.Raycaster,
         this._preventDefault = !1,
-        i = i || document,
-        i.addEventListener("mousemove", this._onDocumentMouseMove.bind(this), !1),
+        i = i || document
+        i.addEventListener("mousemove", this._onDocumentMouseMove.bind(this), !1)
         i.addEventListener("mousedown", this._onDocumentMouseDown.bind(this), !1),
         i.addEventListener("mouseup", this._onDocumentMouseUp.bind(this), !1),
         i.addEventListener("mousewheel", this._onMouseWheel.bind(this), !1),
